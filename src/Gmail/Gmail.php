@@ -84,14 +84,19 @@ class Gmail {
      * @param bool $update
      * @return static
      */
-    public function saveAccessToken($service_id = null) {
+    public function saveAccessToken() {
+        $config = json_decode(
+            File::get(
+                $file = storage_path('exact.api.json')
+            ),
+            true
+        );
 
+        $config['access_token'] = $this->accessToken;
+        $config['refresh_token'] = $this->refreshToken;
+        $config['email'] = $this->emailAddress;
 
-        // @TODO: SAVE access + refresh tokens to file
-//        $this->accessToken
-//        $this->refreshToken
-//        $this->emailAddress
-
+        File::put($file, json_encode($config));
     }
 
     /**
