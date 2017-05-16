@@ -87,7 +87,7 @@ class Gmail {
     public function saveAccessToken() {
         $config = json_decode(
             File::get(
-                $file = storage_path('exact.api.json')
+                $file = storage_path('gmail-' . $this->emailAddress . 'json')
             ),
             true
         );

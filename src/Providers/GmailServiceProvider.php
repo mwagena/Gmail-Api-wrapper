@@ -10,7 +10,7 @@ class GmailServiceProvider extends ServiceProvider {
     public function boot()
     {
         $this->publishes([
-            __DIR__ . '/../config/gmail.php' => config_path('gmail.php'),
+            __DIR__ . '/../../config/gmail.php' => config_path('gmail.php'),
         ], 'config');
     }
 
@@ -20,8 +20,8 @@ class GmailServiceProvider extends ServiceProvider {
             __DIR__.'/../../config/gmail.php', 'gmail'
         );
 
-        $config = $this->app['config']->get('gmail');
-        $this->app->instance('gmail', new Gmail($config));
+//        $config = $this->app['config']->get('gmail');
+//        $this->app->instance('gmail', new Gmail($config));
     }
 
     public function provides()
